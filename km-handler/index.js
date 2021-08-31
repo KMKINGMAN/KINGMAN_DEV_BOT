@@ -1,5 +1,5 @@
 module.exports = {
-	IMG : require('./kingman/img').IMG,
+  IMG : require('./kingman/img').IMG,
   MSG : require('./kingman/msg').MSG,
   MOD : require('./kingman/mod').MOD,
   LEVEL: require('./kingman/Level').KingmanLevel,
