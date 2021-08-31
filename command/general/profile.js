@@ -20,7 +20,7 @@ module.exports = {
       name = Member.user.username.length > 10 ? Member.user.username.substring(0, 9) + '...' : Member.user.username;
       kmsg.channel.send({
         files: [
-        { attachment: await Img.Profile("https://media.discordapp.net/attachments/878307390326472754/880909193471729744/New_Project_5.png", Member.user
+        { attachment: await Img.Profile("https://a.top4top.io/p_2069floep1.png", Member.user
       .avatarURL({      
           dynamic:true,
           size:2048,
