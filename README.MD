@@ -25,8 +25,11 @@ KINGMAN DEV BOT has a lot of features, with **9 main categories**:
 ## Installation
 
 > Make .env File and fill token and mongodb link in `KM_TOKEN`, `KM_MONGO`
-> edit LOCALDB/kingmanconf.json and Fill prefix and `openweathermap` Api Key
+
+> edit LOCALDB/kingmanconf.json and Fill \`prefix\` and `openweathermap` Api Key
+
 > Install all pkgs using `npm install` 
+
 > run project by `node index.js`
 
 ## Links
