@@ -3,7 +3,7 @@
 # KINGMAN DEV
 
 [![](https://img.shields.io/discord/565048515357835264.svg?logo=discord&colorB=7289DA&label=KINGMAN_DEV)](https://discord.gg/KD2mdRReSA)
-[![](https://img.shields.io/badge/discord.js-v12.0.0--dev-blue.svg?logo=npm)](https://github.com/discordjs)
+[![](https://img.shields.io/badge/discord.js-v12.0.0-blue.svg?logo=npm)](https://github.com/discordjs)
 
 KINGMAN Dev is a open source Discord bot coded in JavaScript with [Discord.js](https://discord.js.org) and [Mongoose](https://mongoosejs.com/docs/api.html) by [KINGMAN](https://github.com/KMKINGMAN).  
 Feel free to add a star ⭐ to the repository to promote the project!
