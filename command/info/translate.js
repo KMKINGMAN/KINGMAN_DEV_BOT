@@ -1,6 +1,6 @@
 const translate = require("@iamtraction/google-translate");
 module.exports = {
-  name: 'tra',
+  name: 'translate',
   description: "To translate texts into Arabic",
   category: "info",
   usage:  [
