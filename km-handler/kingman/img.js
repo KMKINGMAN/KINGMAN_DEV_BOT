@@ -73,7 +73,7 @@ class IMG {
    * @returns Cava Image
    */
   async Welcome(name, avatar){
-    let image = await resolveImage("https://media.discordapp.net/attachments/878307390326472754/881958019510968380/c2d66f330dc07fbf.png"),
+    let image = await resolveImage("https://c.top4top.io/p_20699yvdk1.png"),
     Avatar = await resolveImage(avatar),
     canva = new Canvas(3000,1370)
     .printImage(image,0,0,3000,1370)
