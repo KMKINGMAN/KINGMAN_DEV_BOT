@@ -4,9 +4,11 @@ module.exports = {
     name: "wconfig",
     category: "moderation",
     usage:  [
-      "setlog",
-      "setpush",
-      "setmaxwarn",
+      "setlog [Channel]",
+      "setpush demote",
+      "setpush ban",
+      "setpush kick",
+      "setmaxwarn [Number]",
       "show"
     ],
     description : "warns configration",
