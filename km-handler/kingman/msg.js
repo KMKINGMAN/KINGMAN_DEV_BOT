@@ -1,9 +1,9 @@
 /**
  * ******************************** *
  *  https://github.com/KINGMAN1996  *
- *   https://github.com/MeKINGMAN   *
+ *   https://github.com/KMKINGMAN   *
  *         +962792914245            *
- *   KINGMAN4HACK MeCodes Server    *
+ *   KINGMAN4HACK KINGMAN Server    *
  * *******************************  *   
  */
 const { MessageEmbed } = require("discord.js");
