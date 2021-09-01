@@ -20,13 +20,12 @@ module.exports = {
     let usedInvites = newInvites.find(invite => cachedInvites.get(invite.code).uses < invite.uses);
     if(!usedInvites){
       usedInvites = {}
-      usedInvites.code = "Vanti Url"
+      usedInvites.code = "Vantiurl"
       usedInvites.inviter = member.guild.owner.user
       usedInvites.uses = "Unknow"
     }
       log.send(
-        `**Welcome to Our Server**
-**Your Number is ${member.guild.members.cache.filter(member => !member.user.bot).size}**
+        `**${member} Welcome to Our Server**
 **Invite By: ${usedInvites.inviter ? usedInvites.inviter: ""}**\n**Joined By Code : \`${usedInvites.code ? usedInvites.code : ""}\`**`,
 		        new MessageAttachment(await Img.Welcome(member.user.username.length > 10 ? member.user.username.substring(0, 9) + '...' : member.user.username, member.user.avatarURL({      
           dynamic:true,
