@@ -17,7 +17,7 @@ module.exports = {
             return KMSGC.USAGE(module.exports.name ,
            `${prefix}${module.exports.name} ${module.exports.usage.join(`\n${prefix}${module.exports.name} `)}\n\n\`${module.exports.description}\``)
         }
-        let Member = await KMODEC.GetUser(args[0])
+        let Member = await KMSGC.GetUser(args[0])
         if(!Member){
             return KMSGC.USAGE(module.exports.name ,
            `${prefix}${module.exports.name} ${module.exports.usage.join(`\n${prefix}${module.exports.name} `)}\n\n\`${module.exports.description}\``)
@@ -32,6 +32,6 @@ module.exports = {
            `${prefix}${module.exports.name} ${module.exports.usage.join(`\n${prefix}${module.exports.name} `)}\n\n\`${module.exports.description}\``) 
         }
         await Member.setNickname(nick)
-        return 
+        await  KMSGC.SEND(`Done`, `<@${Member.id}> Nick Has Been Changed to ${nick}`)
     }
 }
