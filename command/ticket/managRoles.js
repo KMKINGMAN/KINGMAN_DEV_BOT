@@ -6,7 +6,8 @@ module.exports = {
     usage:  [
       "add [Role]",
       "remove [Role]",
-      "show [Role]"
+      "show",
+      "rest <To Delete All Ticket Data>"
     ],
     description : "to manage support ticket roles",
     run: async(client, kmsg, args, prefix, KMSGC, KMODEC) => {
@@ -22,7 +23,8 @@ module.exports = {
         ops = [
           'add',
           'remove',
-          'show'
+          'show',
+          'rest'
         ]
         if(!args[0]){
           return KMSGC.USAGE(module.exports.name ,
@@ -92,7 +94,13 @@ module.exports = {
             return await KMSGC.ERR('No Data Found')
           }
           await KMSGC.SEND('Support Roles', `- <@&${Data[0].Role.join(`>\n- <@&`)}>`)
-          break
+          break;
+          case 'rest':
+          Data = await TicketSetUp.findOneAndRemove({
+            GuildID: kmsg.guild.id
+          })
+          await KMSGC.SEND('Done', `Deleted Guild Data`)
+          break;
         }
     }
 }
