@@ -3,7 +3,12 @@ const GuildWarnsOps = require('../../Modals/Warns/WarnsGuild')
 module.exports = {
     name: "wconfig",
     category: "moderation",
-    usage:  [" [MEMBERS] [Reason]"],
+    usage:  [
+      "setlog",
+      "setpush",
+      "setmaxwarn",
+      "show"
+    ],
     description : "warns configration",
     run: async(client, kmsg, args, prefix, KMSGC, KMODEC) => {
         let mp , bp, Data, Data2, log;
@@ -14,7 +19,8 @@ module.exports = {
         let ops = [
           "setlog",
           "setpush",
-          "setmaxwarn"
+          "setmaxwarn",
+          "show"
         ]
         if(!args[0]){
           return KMSGC.USAGE(module.exports.name ,
@@ -62,7 +68,8 @@ module.exports = {
           case ops[1].toLowerCase():
           let push = [
             "ban",
-            "kick"
+            "kick",
+            "demote"
           ]
           if(!args[1]){
             return KMSGC.USAGE(module.exports.name ,
@@ -97,13 +104,13 @@ module.exports = {
           break
           case ops[2].toLowerCase():
           if(!args[1]){
-            return
+            return KMSGC.ERR("Please Write This Commands With Number")
           }
           if(isNaN(args[1])){
-            return
+            return KMSGC.ERR("Max Warns Must Be A Number")
           }
           if(Number(args[1]) < 1){
-            return
+            return KMSGC.ERR("Max Warns Must Be < 1")
           }
                     Data = await GuildWarnsOps
           .findOneAndUpdate({
@@ -127,7 +134,20 @@ module.exports = {
         .catch(()=>{
           kmsg.react('❌')
         })
-          break
+          break;
+          case ops[3].toLowerCase():
+          Data = await GuildWarnsOps.findOne({
+            GuildID: kmsg.guild.id
+          })
+          if(!Data){
+            Data = await GuildWarnsOps
+            .create({
+              GuildID: kmsg.guild.id
+            })
+            Data.save()
+          }
+          await KMSGC.SEND('Warns Configs', `Logs: <#${Data.Log}>\nMaxWarns: ${Data.MaxWarns}\nPushment: ${Data.Pushment}`)
+          break;
         }
     }
 }
