@@ -93,6 +93,9 @@ module.exports = {
           }
           
         }
+        let DoneMsg = async (Member, Reason) =>{
+          await KMSGC.SEND(`WARNED DONE`, `${Member} Has Been Warned For ${Reason}`)
+        }
         //////////////
         if(Data2.Total >= Data.MaxWarns -1){
           if(Data.Pushment){
@@ -103,26 +106,32 @@ module.exports = {
                 if(log){
                   await LogMsg2(log, 'ban')
                 }
+                await DoneMsg(Member, Reason)
               } catch(e) {
                 if(log){
                   await LogMsg3(log, 'ban')
                 }
+                await DoneMsg(Member, Reason)
               }
               break
               case 'kick':
               try {
                 await KINGMAN.Kick(kmsg.guild, Member)
                 await DMU(Member, `**You Have Warned for \`${Reason}\` By ${kmsg.author.tag}**`)
+                await DoneMsg(Member, Reason)
                 if(log){
                  await LogMsg2(log, 'kick')
                  await DMU(Member, `**You Have Warned for \`${Reason}\` By ${kmsg.author.tag}**`)
+                 await DoneMsg(Member, Reason)
                 }
               } catch(e) {
                 if(log){
                  await LogMsg3(log, 'ban')
                  await DMU(Member, `**You Have Warned for \`${Reason}\` By ${kmsg.author.tag}**`)
+                 await DoneMsg(Member, Reason)
                 }
                 await DMU(Member, `**You Have Warned for \`${Reason}\` By ${kmsg.author.tag}**`)
+                await DoneMsg(Member, Reason)
               }
               break
               case 'demote':
@@ -131,18 +140,21 @@ module.exports = {
                 if(log){
                  await LogMsg2(log, 'demot')
                 }
-                await DMU(Member, `**You Have Warned for \`${Reason}\` By ${kmsg.author.tag}**`)                
+                await DMU(Member, `**You Have Warned for \`${Reason}\` By ${kmsg.author.tag}**`)   
+                await DoneMsg(Member, Reason)             
               } catch(e) {
                 if(log){
                  await LogMsg3(log, 'demot')
                 }
                 await DMU(Member, `**You Have Warned for \`${Reason}\` By ${kmsg.author.tag}**`)
+                await DoneMsg(Member, Reason)
               }
               break
             }
           }
           } else {
             await DMU(Member, `**You Have Warned for \`${Reason}\` By ${kmsg.author.tag}**`)
+            await DoneMsg(Member, Reason)
             if(log){
               await LogMsg(log)
             }
